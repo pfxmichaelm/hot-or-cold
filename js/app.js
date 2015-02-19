@@ -19,9 +19,18 @@ function newGame() {
 }
 
 function secretNum() {
-
+  num = Math.floor(Math.random() * 100);
+  console.log(typeof num);
 }
 
+secretNum();
+console.log(num);
+
 function guess() {
-	
+  if (#userGuess == num) {
+  	alert("Correct!!");
+  }
+  else {
+
+  }
 }
