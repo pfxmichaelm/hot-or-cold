@@ -14,4 +14,14 @@ $(document).ready(function(){
 
 });
 
+function newGame() {
 
+}
+
+function secretNum() {
+
+}
+
+function guess() {
+	
+}
