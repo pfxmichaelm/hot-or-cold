@@ -1,46 +1,40 @@
 
-$(document).ready(function(){
-	
-	/*--- Display information modal box ---*/
-  	$(".what").click(function(){
-    	$(".overlay").fadeIn(1000);
+$(document).ready(function() {
 
-  	});
+    /*--- Display information modal box ---*/
+    $(".what").click(function() {
+        $(".overlay").fadeIn(1000);
 
-  	/*--- Hide information modal box ---*/
-  	$("a.close").click(function(){
-  		$(".overlay").fadeOut(1000);
-  	});
+    });
 
-  	var answer = Math.floor((Math.random() * 100) + 1);
-    console.log('Secret number is: ' + answer);
-    var numberOfGuess = 0
-    var guesses = [];
-    var distance = null;
-    var prevDistance = null;
+    /*--- Hide information modal box ---*/
+    $("a.close").click(function() {
+        $(".overlay").fadeOut(1000);
+    });
+
+    var answer = Math.floor((Math.random() * 100) + 1);
+    console.log('number is: ' + answer);
 });
 
-function getGuess() {
-  $(document).ready(function() {
-    $('#guessButton').click(function() {
-      var uGuess = $('#userGuess').val();
-      uGuess = +uGuess;
-      console.log(typeof uGuess)
-      console.log('Guess: ' + uGuess);	
-    });
-    //game();
+function getGuessNum() {
+  $('#guessButton').click(game);
+  $('#userGuess').keydown(function (e) {
+    console.log('KeyCode: ' + e.keyCode);
+    if (e.keyCode == 13) {
+      game();
+    }
   });
 }
 
-getGuess();
+getGuessNum();
 
-function newGame() {
-
-}
 
 function game() {
-
+  console.log('enter game');
 }
 
+function newGame() {
+  console.log('nothing yet')
+}
 
 //$('#userGuess').focus();
