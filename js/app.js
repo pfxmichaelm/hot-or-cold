@@ -17,10 +17,10 @@ $(document).ready(function() {
 });
 
 function getGuessNum() {
-  $('#guessButton').click(function (game) {
-  	game.preventDefault();
-    $('#userGuess').keydown(function (enter) {
-      enter.preventDefault();
+  $('#guessButton').click(function (event) {
+  	event.preventDefault();
+    $('#userGuess').keydown(function (event) {
+      event.preventDefault();
       console.log('KeyCode: ' + enter.keyCode);
       if (enter.keyCode == 13) {
         game();
@@ -37,8 +37,8 @@ function game() {
 
 }
 
-$('.new').click(function (e) {
-  e.preventDefault();
+$('.new').click(function (event) {
+  event.preventDefault();
   answer = Math.floor((Math.random() * 100) + 1);
   console.log('answer is xx: ' + answer);
   $('#userGuess').val(' ');
