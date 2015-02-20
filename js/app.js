@@ -17,12 +17,15 @@ $(document).ready(function() {
 });
 
 function getGuessNum() {
-  $('#guessButton').click(game);
-  $('#userGuess').keydown(function (e) {
-    console.log('KeyCode: ' + e.keyCode);
-    if (e.keyCode == 13) {
-      game();
-    }
+  $('#guessButton').click(function (game) {
+  	game.preventDefault();
+    $('#userGuess').keydown(function (enter) {
+      enter.preventDefault();
+      console.log('KeyCode: ' + enter.keyCode);
+      if (enter.keyCode == 13) {
+        game();
+      }
+    });
   });
 }
 
@@ -31,10 +34,14 @@ getGuessNum();
 
 function game() {
   console.log('enter game');
+
 }
 
-function newGame() {
-  console.log('nothing yet')
-}
+$('.new').click(function (e) {
+  e.preventDefault();
+  answer = Math.floor((Math.random() * 100) + 1);
+  console.log('answer is xx: ' + answer);
+  $('#userGuess').val(' ');
+});
 
 //$('#userGuess').focus();
