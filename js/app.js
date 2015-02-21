@@ -15,8 +15,8 @@ $(document).ready(function() {
 
 
   function getGuessNum() {
-    var test = $('#userGuess').val();
-    console.log('test = ' + test);
+    var uGuess = $('#userGuess').val();
+    console.log('guess = ' + uGuess);
   }
 
   $('form').submit(function(event) {
@@ -25,14 +25,14 @@ $(document).ready(function() {
   });
 
   $('#userGuess').keydown(function(event) {
-    event.preventDefault();
-    console.log('event.which = ' + event.which);
+    //event.preventDefault();
+    //console.log('event.which = ' + event.which);
     if (event.which == 13) {
-      getGuessNum()
+      //getGuessNum()
     }
   });
 
-//getGuessNum();
+  //getGuessNum();
 
 
   function game() {
