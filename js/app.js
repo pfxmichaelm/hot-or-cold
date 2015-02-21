@@ -12,34 +12,35 @@ $(document).ready(function() {
 
   var answer = Math.floor((Math.random() * 100) + 1);
   console.log('number is: ' + answer);
-});
 
-function getGuessNum() {
-  var test = $('#userGuess').val();
-  console.log('test = ' + test);
-}
 
-$('#guessButton').click(function (event) {
-  event.preventDefault();
-  getGuessNum();
-});
-
-$('#userGuess').keydown(function (event) {
-  event.preventDefault();
-  console.log('event.which = ' + event.which);
-  if (event.which == 13) {
-    getGuessNum()
+  function getGuessNum() {
+    var test = $('#userGuess').val();
+    console.log('test = ' + test);
   }
-});
+
+  $('form').submit(function(event) {
+    event.preventDefault();
+    getGuessNum();
+  });
+
+  $('#userGuess').keydown(function(event) {
+    event.preventDefault();
+    console.log('event.which = ' + event.which);
+    if (event.which == 13) {
+      getGuessNum()
+    }
+  });
 
 //getGuessNum();
 
 
-function game() {
-  console.log('enter game');
+  function game() {
+    console.log('enter game');
 
-}
+  }
 
+});
 /*$('.new').click(function (event) {
   event.preventDefault();
   answer = Math.floor((Math.random() * 100) + 1);
