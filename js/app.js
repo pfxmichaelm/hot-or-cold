@@ -23,6 +23,7 @@ $(document).ready(function() {
   function getGuessNum() {
     uGuess = $('#userGuess').val();
     console.log('guess = ' + uGuess);
+    game();
   }
 
   $('form').submit(function(event) {
@@ -42,12 +43,24 @@ $(document).ready(function() {
     console.log('enter game' + ', num = ' + answer);
     distance = Math.abs(answer - uGuess);
     console.log('dist = ' + distance);
+    if (distance > 50) {
+      console.log('ice cold');
+    }
+    else if (distance < 50 && distance > 30) {
+      console.log('cold');
+    }
+    else if (distance < 30 && distance > 20) {
+      console.log('warm');
+    }
+    else if (distance < 20 && distance > 10) {
+      console.log('hot');
+    }
+    else if (distance < 10 && distance > 1) {
+      console.log('very hot');
+    }
     $('#userGuess').val(' ');
-    //if uGuess
 
   }
-
-  game();
 
   $('.new').click(function(event) {
     event.preventDefault();
