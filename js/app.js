@@ -17,7 +17,6 @@ $(document).ready(function() {
   var numOfGuess = 0;
   var guess = [];
   var distance = null;
-  var prevDistance = null;
   $('#userGuess').val(' ');
 
   function getGuessNum() {
@@ -45,7 +44,7 @@ $(document).ready(function() {
     var uGuess = parseInt($('#userGuess').val());
     if (uGuess != null && $.isNumeric(uGuess) && (1 < uGuess < 101)) {
       numOfGuess += 1;
-      $('#count').html(+numOfGuess);
+      $('#count').html(numOfGuess);
       guess.push(uGuess);
       distance = Math.abs(answer - uGuess);
       console.log('dist = ' + distance);
@@ -83,11 +82,10 @@ $(document).ready(function() {
     event.preventDefault();
     answer = Math.floor((Math.random() * 100) + 1);
     console.log('new number is: ' + answer);
-    uGuess = 0;
+    uGuess = null;
     var numOfGuess = 0;
     var guess = [];
     var distance = null;
-    var prevDistance = null;
     $('#userGuess').val(' ');
     $('#feedback').html("Make your Guess!");
     $('#count').html(0);
