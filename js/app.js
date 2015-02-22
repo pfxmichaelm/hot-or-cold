@@ -10,23 +10,19 @@ $(document).ready(function() {
     $(".overlay").fadeOut(1000);
   });
 
-  function setupGame() {
-    var answer = Math.floor((Math.random() * 100) + 1);
-    console.log('number is: ' + answer);
-    answer = Math.floor((Math.random() * 100) + 1);
-    var numOfGuess = 0;
-    var guess = [];
-    var distance = null;
-    var prevDistance = null;
-    $('#userGuess').val(' ');
-  }
-
-  setupGame();
+  var answer = Math.floor((Math.random() * 100) + 1);
+  console.log('number is: ' + answer);
+  answer = Math.floor((Math.random() * 100) + 1);
+  var uGuess = 0;
+  var numOfGuess = 0;
+  var guess = [];
+  var distance = null;
+  var prevDistance = null;
+  $('#userGuess').val(' ');
 
   function getGuessNum() {
-    var uGuess = $('#userGuess').val();
+    uGuess = $('#userGuess').val();
     console.log('guess = ' + uGuess);
-    game();
   }
 
   $('form').submit(function(event) {
@@ -42,25 +38,27 @@ $(document).ready(function() {
     }
   });
 
-  //getGuessNum();
-
-
   function game() {
-    console.log('enter game');
+    console.log('enter game' + ', num = ' + answer);
+    distance = Math.abs(answer - uGuess);
+    console.log('dist = ' + distance);
+    $('#userGuess').val(' ');
+    //if uGuess
 
   }
 
+  game();
 
   $('.new').click(function(event) {
     event.preventDefault();
-/*    answer = Math.floor((Math.random() * 100) + 1);
+    answer = Math.floor((Math.random() * 100) + 1);
     console.log('new number is: ' + answer);
+    uGuess = 0;
     var numOfGuess = 0;
     var guess = [];
     var distance = null;
     var prevDistance = null;
-    $('#userGuess').val(' ');*/
-    setupGame();
+    $('#userGuess').val(' ');
   });
 });
 //$('#userGuess').focus();
