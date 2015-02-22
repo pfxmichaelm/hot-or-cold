@@ -23,6 +23,7 @@ $(document).ready(function() {
   function getGuessNum() {
     uGuess = $('#userGuess').val();
     console.log('guess = ' + uGuess);
+    $('#guessList').prepend('<li>' + uGuess + '</li>');
     game();
   }
 
@@ -44,27 +45,34 @@ $(document).ready(function() {
     var uGuess = parseInt($('#userGuess').val());
     if (uGuess != null && $.isNumeric(uGuess) && (1 < uGuess < 101)) {
       numOfGuess += 1;
+      $('#count').html(+numOfGuess);
       guess.push(uGuess);
       distance = Math.abs(answer - uGuess);
       console.log('dist = ' + distance);
       if (uGuess == answer) {
         console.log("Winner");
+        $('#feedback').html("Winner");
       }
       else {
         if (distance > 50) {
           console.log('ice cold');
+          $('#feedback').html("Ice cold");
         }
         else if (distance < 50 && distance > 30) {
           console.log('cold');
+          $('#feedback').html("Cold");
         }
         else if (distance < 30 && distance > 20) {
           console.log('warm');
+          $('#feedback').html("Warm");
         }
         else if (distance < 20 && distance > 10) {
           console.log('hot');
+          $('#feedback').html("Hot");
         }
         else if (distance < 10 && distance > 1) {
           console.log('very hot');
+          $('#feedback').html("Very Hot");
         }
         $('#userGuess').val(' ');
       }
@@ -81,6 +89,9 @@ $(document).ready(function() {
     var distance = null;
     var prevDistance = null;
     $('#userGuess').val(' ');
+    $('#feedback').html("Make your Guess!");
+    $('#count').html(0);
+    $('#guessList').html(' ');
   });
 });
 //$('#userGuess').focus();
