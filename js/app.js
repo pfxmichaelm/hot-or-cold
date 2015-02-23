@@ -83,7 +83,7 @@ $(document).ready(function() {
     answer = Math.floor((Math.random() * 100) + 1);
     console.log('new number is: ' + answer);
     uGuess = null;
-    var numOfGuess = 0;
+    numOfGuess = 0;
     var guess = [];
     var distance = null;
     $('#userGuess').val(' ');
