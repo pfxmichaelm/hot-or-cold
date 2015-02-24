@@ -17,7 +17,7 @@ $(document).ready(function() {
   var numOfGuess = 0;
   var guess = [];
   var distance = null;
-  $('#userGuess').val(' ');
+  $('#userGuess').val('');
 
   function getGuessNum() {
     uGuess = $('#userGuess').val();
@@ -73,7 +73,7 @@ $(document).ready(function() {
           console.log('very hot');
           $('#feedback').html("Very Hot");
         }
-        $('#userGuess').val(' ');
+        $('#userGuess').val('');
       }
     }
   }
